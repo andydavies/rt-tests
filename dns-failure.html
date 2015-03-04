@@ -2,10 +2,30 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>DNS Failure</title>
+		<title>DNS Lookup Failure</title>
 	</head>
 	<body>
-		<img src="http://somedomainthathopefullynoonehasregisteredyet.com/image.png"
+		<h1>DNS Lookup Failure</h1>
+		<img id="test-img" src="http://somedomainthathopefullynoonehasregisteredyet.com/image.png"/>
+	
+		<h2>Resource Timing</h2>
+		<pre id="output">
+		</pre>
+	
+		<script>
+			window.addEventListener("load", checkResult);
+
+			function checkResult() {
+				if(window.performance && window.performance.getEntriesByName) {
+					var url = document.getElementById("test-img");
+					resourceEntries = window.performance.getEntriesByName(url.src);
+
+					var output = document.getElementById("output");
+					output.innerHTML = JSON.stringify(resourceEntries, null, 2);
+				} 
+			}
+		</script>
+
 	</body>
 </html>
 

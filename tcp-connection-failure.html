@@ -5,6 +5,28 @@
 		<title>TCP Connection Failure</title>
 	</head>
 	<body>
-		<img src="http://192.0.2.0/image.png"
+		<h1>TCP Connection Failure</h2>
+		<img id="test-img" src="http://192.0.2.0/image.png" />
+
+		<h2>Resource Timing</h2>
+		<pre id="output">
+		</pre>
+	
+		<script>
+			window.addEventListener("load", checkResult);
+
+			function checkResult() {
+				console.log("onload");
+
+				if(window.performance && window.performance.getEntriesByName) {
+					var url = document.getElementById("test-img");
+					resourceEntries = window.performance.getEntriesByName(url.src);
+
+					var output = document.getElementById("output");
+					output.innerHTML = JSON.stringify(resourceEntries, null, 2);
+				} 
+			}
+		</script>
+
 	</body>
 </html>

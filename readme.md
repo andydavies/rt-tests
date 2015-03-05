@@ -4,6 +4,7 @@ Created to explore what Resource Timing information browsers provide in error ca
 
 Each case attempts to load a resource, then when onload fires it checks the PerfromanceEntries for that resource.
 
+|-----|-----|
 | dns-failure.html | References an image from a domain that doesn't resolve |
 | tcp-connection-failure.html | References an image from an IP that can't be connected to |
 | http-404-failure.html | Referemces an image that doesn't exist |
@@ -22,11 +23,13 @@ More test cases are needed for example:
 
 **Chrome**
 
+|-----|-----|
 | Resource Timing - Missing PerformanceResourceTiming entries for Requests that don't receive a Response | https://code.google.com/p/chromium/issues/detail?id=460879 |
 | Resource Timing - Malformed HTML causes incorrect PerformanceEntry | https://code.google.com/p/chromium/issues/detail?id=464058 |
 
 **Firefox**
 
+|-----|-----|
 | Resource Timing API - responseEnd is before requestStart and responseStart for HTTP 404 | https://bugzilla.mozilla.org/show_bug.cgi?id=1139831 |
 
 ## Testing in WPT
